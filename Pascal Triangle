@@ -1,0 +1,36 @@
+#include<iostream>
+#include<bits/stdc++.h>
+#include<string>
+#include<vector>
+using namespace std;
+int arr[50]={0};
+int m[50]={0};
+
+void solve()
+{
+   arr[0]=1,arr[1]=1,arr[2]=1;
+   int n=10;
+   for(int i=1;i<=n;i++){
+        for(int j=0;j<i;j++){
+            if( j==0 )
+                { cout<<1<<" "; m[j]=1;}
+            if( j==i-1 && j!=0)
+                { cout<<1<<" "; m[j]=1;}
+            if( j!=0 && j!=i-1){
+                 cout<<arr[j-1]+arr[j]<<" ";
+                 m[j] = arr[j-1]+arr[j];
+                }
+             }
+         for(int k=0;k<50;k++)
+            arr[k] = m[k];
+       
+       cout<<endl;
+      }       
+}
+
+int main()
+{
+    freopen("E://input-output//input.txt","r",stdin);
+    freopen("E://input-output//output.txt","w",stdout);
+    solve();
+}
