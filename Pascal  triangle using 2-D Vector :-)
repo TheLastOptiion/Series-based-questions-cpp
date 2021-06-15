@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<vector<int>> generate(int n) {
+        
+        vector<vector<int>> v1;
+        int arr[50]={0};
+        int m[50]={0};
+        arr[0]=1,arr[1]=1,arr[2]=1;
+        
+        for(int i=1;i<=n;i++)
+          {
+            vector<int> v2;
+            for(int j=0;j<i;j++)
+            {
+                if( j==0 )
+                    { m[j]=1; v2.push_back(1);}
+                if( j==i-1 && j!=0)
+                    {  m[j]=1; v2.push_back(1);}
+                if( j!=0 && j!=i-1)
+                {
+                    v2.push_back( arr[j-1]+arr[j] );
+                     m[j] = arr[j-1]+arr[j];
+                }
+              }
+            for(int k=0;k<50;k++)
+                arr[k] = m[k];
+            
+            v1.push_back(v2);
+              
+          }
+        return v1;
+        
+        
+        
+    }
+};
